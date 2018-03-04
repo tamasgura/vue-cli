@@ -1,6 +1,6 @@
 <template>
 	
-	<div>
+	<div class="col-xl-4 border">
 		
 		<h3>Inventory levels</h3>
 		<div>Inventory levels chart</div>
@@ -11,9 +11,6 @@
 
 <script type="text/javascript">
 	export default {
-		created() {
-			console.log("columnChart created");
-		}
 
 	}
 
@@ -21,6 +18,6 @@
 
 <style type="text/css">
 	
-
+/*font-size: 0.875rem*/
 	
 </style>

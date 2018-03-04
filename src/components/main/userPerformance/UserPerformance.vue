@@ -1,10 +1,15 @@
 <template>
 
-	<section>
+	<section class="container-fluid userPerformance">
 		
 		<h3>User performance</h3>
-		<app-user v-for="(user, index) in userList" :key="index" :user="user"></app-user>
+		<div class="row no-gutters justify-content-around">
+			
+			<app-user v-for="(user, index) in userList" :key="index" :user="user"></app-user>
 
+
+		</div>
+		
 	</section>
 
 </template>
@@ -62,6 +67,12 @@
 
 <style type="text/css">
 	
+	.userPerformance h3 {
+		margin: 2.5rem 0 2rem;
+	}
+	.userPerformance {
+		padding-bottom: 20rem;
+	}
 
 	
 </style>

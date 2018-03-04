@@ -1,10 +1,7 @@
 <template>
 	
-	<select>
-		<option v-for="account in accounts">
-			<app-account :account="account"></app-account>
-		</option>
-	</select>
+	<div>
+	</div>
 
 
 </template>

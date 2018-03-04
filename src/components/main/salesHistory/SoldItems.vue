@@ -1,15 +1,17 @@
 <template>
 
-	<section>
+	<section class="col px-3">
 		
-		<h3>Sold items in last 24 hrs</h3>
-		<a href="#">see full list</a>
-		<ul>
-			<li v-for="(item, index) in soldItems" :key="index">
-				<app-sales-item :item="item"></app-sales-item>
-			</li>
-		</ul>
+		<div class="row no-gutters align-items-end mb-5">
+			<h3 class="col-xl-10 text-left">Sold items in last 24 hrs</h3>
+			<a href="#" class="col align-text-bottom">see full list</a>
 	
+		</div>
+
+		<table class="table">
+			<app-sales-item v-for="(item, index) in soldItems" :key="index" :item="item"></app-sales-item>
+		</table>
+
 	</section>
 
 </template>
@@ -58,7 +60,7 @@
 </script>
 
 <style type="text/css">
-	
 
-	
+
+
 </style>

@@ -1,6 +1,6 @@
 <template>
 
-	<div> 
+	<div class="salesHistory row no-gutters"> 
 		
 		<app-sold-items></app-sold-items>
 		<app-unsold-items></app-unsold-items>
@@ -24,7 +24,17 @@
 </script>
 
 <style type="text/css">
-	
 
-	
+.salesHistory {
+	padding-bottom: 5rem;
+}
+
+.salesHistory a {
+	color: #199ed9;
+	text-align: right;
+}
+.salesHistory table tr:first-child td {
+	border-top:none !important;
+}
+
 </style>

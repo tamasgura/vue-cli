@@ -1,6 +1,10 @@
 <template>
-
-	<p>{{ item.name }} {{ item.attr }} {{ item.price }}&pound;</p>
+		
+	<tr>
+		<td class="pl-0">{{ item.name }}</td>
+		<td class="pl-0">{{ item.attr }}</td>
+		<td class="pl-0">{{ item.price }}&pound;</td>
+	</tr>
 
 </template>
 
@@ -13,8 +17,7 @@
 
 </script>
 
-<style type="text/css">
+<style type="text/css" scoped>
 	
-
 	
 </style>
