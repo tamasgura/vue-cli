@@ -1,18 +1,17 @@
 <template>
 
 		<div class="row no-gutters">
-			<div class="col-xl-2">
+			<div class="col">
 				<app-sidebar></app-sidebar>
 			</div>
 			
-			<div class="col-xl-10">
+			<div class="col-9">
 				<app-header></app-header>
 				<app-main></app-main>
 				<app-snackbar></app-snackbar>
 				<app-footer></app-footer>
 			</div>
 		</div>
-		
 		
 </template>
 
@@ -47,9 +46,14 @@
 	}
 	body {
 		font-family: 'Open Sans';
-		font-size: .87rem;
+		font-size: .875rem;
+		height: 100%;
 	}
-	a {text-decoration: none;
+	html: {
+		height: 100%;
+	}
+	a {
+		text-decoration: none;
 		color: #a1a1a1;
 	}
 	h3 {
@@ -58,6 +62,21 @@
 	}
 	ul li {
 		list-style-type: none;
+	}
+	.blue {
+		background-color: #199ed9;
+	}
+	.gray {
+		background-color: #e9e9e9;
+	}
+	.green {
+		background-color: #a8cda7;
+	}
+	.red {
+		background-color: #f09e88;
+	}
+	.blueText {
+		color: #199ed9;
 	}
 	/*
 	g: #a8cda7

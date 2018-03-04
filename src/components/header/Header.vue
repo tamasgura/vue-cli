@@ -1,82 +1,67 @@
 <template>
 
-<header class="row">
+	<header class="row no-gutters">
 
-	<app-searchbar></app-searchbar>
-	
-	<ul class="col-xl-10 d-flex justify-content-end my-0">
+		<ul class="col-xl-12 row no-gutters my-0 justify-content-end">
 
-	
+<!-- searchbar -->
+			<app-searchbar v-if='!quickLinks.visible'></app-searchbar>
+
 <!--eBay account-->
-		<li class="col-xl-3 d-flex justify-content-end mx-0 px-0">
-			<a href="" class="d-flex justify-content-between align-items-center">
-				
-				<p class="col-xl-7 my-0">XYZ eBay account</p>
+			<app-accounts-dropdown v-if="!quickLinks.visible"></app-accounts-dropdown>
 
-				<img src="../../assets/icons/dropdown.svg" class="col-xl-2">
-				<!--<app-accounts></app-accounts>-->
+<!-- add new quick links -->	
+			<li class="col d-flex align-items-center justify-content-end mx-0 px-0" v-if="quickLinks.visible">
+				<a href="" class="blueText col offset-9 px-0">Add new inventory item</a>
+				<a href="" class="blueText col px-0">Create new listing</a>
+			</li>
 
-			</a>
-		</li>
-	
-<!--Notification-->
-		<li class="notification d-flex">
-			<a href="" class="d-flex align-items-center col">
-				
-				<img src="../../assets/icons/notification.svg">
-
-				<span class="badge rounded-circle">{{ notifications }}</span>
-		
-			</a>
-		</li>
+<!--Notification-->		
+			<app-notifications-dropdown v-if="!quickLinks.visible"></app-notifications-dropdown>
 
 <!--addnew-->
-		<li class="addNew d-flex">		
-			<a href="" class="d-flex align-items-center col">
-				
-				<img src="../../assets/icons/add.svg">
+			<li class="col addNew d-flex">		
+				<a href="" class="d-flex align-items-center col px-0 mx-auto" @click.prevent="quickLinks.visible=!quickLinks.visible">
 					
-			</a>		
-		</li>
+					<img src="../../assets/icons/add.svg" class="mx-auto">
+						
+				</a>		
+			</li>
 
 <!--Logout-->
-		<li class="d-flex">
-			<a href="#" class="d-flex align-items-center col">
-				
-				<img src="../../assets/icons/logout.svg">
+			<li class="col d-flex logout">
+				<a href="#" class="d-flex align-items-center col px-0">
+					
+					<img src="../../assets/icons/logout.svg" class="mx-auto">
 
-			</a>
-		</li>
-	</ul>
+				</a>
+			</li>
+		</ul>
 
-
-
-
-</header>
+	</header>
 
 </template>
 
 <script type="text/javascript">
 
 	import Searchbar from './search/Searchbar.vue';
-	import AccountsDropDown from './accounts/AccountsDropDown.vue';
+	import AccountsDropdown from './accounts/AccountsDropdown.vue';
 	import NotificationsDropdown from './notifications/NotificationsDropdown.vue';
-	import AddNew from './addNew/AddNew.vue';
 	
 	export default {
 
 		components: {
 			'app-searchbar': Searchbar,
-			'app-accounts': AccountsDropDown,
-			'app-notifications': NotificationsDropdown,
-			'app-addNew': AddNew
+			'app-accounts-dropdown': AccountsDropdown,
+			'app-notifications-dropdown': NotificationsDropdown
 		},
 		data: function() {
 			return {
-				notifications: 9
+				quickLinks: {
+					visible: false
+				}
 			}
 		}
-
 	}
 
 </script>
@@ -87,7 +72,7 @@
 		opacity: .3;
 		height: 1.5rem;
 	}
-	ul {
+	header * {
 		font-size: .6875rem;
 	}
 	ul > li:not(:last-child) {
@@ -102,20 +87,21 @@
 
 	a {
 		display: block;
+		font-size: .6785rem;
    	}
 
 	li {
-		width: 3.125rem;
 		height: 3.25rem;
 		display: inline-block;
 	}
-	.notification span {
-		background-color: #199ed9;
-		color: #fff;
-		position: relative;
-		top: .8rem;
-		left: -.4rem;
-		font-size: .6875rem;
+	.searchbar input {
+		border: none;
 	}
-
+	::placeholder {
+   		color: #a1a1a1;
+   		font-size: .6785rem;
+   	}
+   	.notification, .addNew, .logout {
+   		max-width: 3.25rem;
+   	}
 </style>

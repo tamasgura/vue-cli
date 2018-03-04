@@ -1,11 +1,12 @@
 <template>
 <div class="fixed-bottom" v-if="snackbar.show">
-	<div class="snackbar regSuccess alert text-center container col-xl-6 offset-xl-4 p-2">
+	<div class="snackbar alert text-center container col-xl-6 offset-xl-4 p-2" :class="snackbar.attachClass">
 		<div class="text-center col align-self-center">
 			
-			<p class="text-center">Sikeres regisztráció</p>
-			<span class="closeBtn border border-light rounded-circle d-inline-block" aria-label="Close">&times;</span>
-
+			<p class="text-center">{{ snackbar.text }}</p>
+			<a aria-label="Close" role="button">
+				<img class="closeBtn" src="../assets/icons/close.svg" @click="snackbar.show=false">
+			</a>
 		</div>
 	</div>
 </div>
@@ -17,9 +18,21 @@
 		data: function() {
 			return {
 				snackbar: {
-					registrationCompleted: false,
-					show: true 
+					registrationCompleted: true,
+					show: true,
+					text: '',
+					attachClass: ''
 				}
+			}
+		},
+		created() {
+			if (this.snackbar.registrationCompleted) {
+				this.snackbar.text = 'Sikeres regisztráció';
+				this.snackbar.attachClass = 'regCompleted';
+			}
+			else {
+				this.snackbar.text = 'Sikertelen regisztráció';
+				this.snackbar.attachClass = 'regFail';
 			}
 		}
 	}
@@ -35,7 +48,7 @@
 		height: 4rem;
 	}
 	
-	.regSuccess {
+	.regCompleted {
 		background-color: #a8cda7;		
 	}
 
@@ -44,13 +57,12 @@
 	}
 
 	.closeBtn {
-		width: 1.25rem;
 		height: 1.25rem;
-		font-size: .6785rem;
-		line-height: 1.25rem;
+		cursor: pointer;
 		position: absolute;
 		top: 0;
 		right: 0;
+		
 	}
 	
 </style>

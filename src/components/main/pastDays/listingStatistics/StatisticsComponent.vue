@@ -3,12 +3,13 @@
 	<div class="col-xl-3 flex-column">
 		<div class="row no-gutters d-flex align-items-center">
 
-			<p class="statisticsNr">3260</p>
-			<span class="rounded-circle"></span>
+			<p class="statisticsNr">{{ data.value }}</p>
+			<span v-if="data.color!==undefined" class="rounded-circle" :class="data.color"></span>
 			
 		</div>
-		<p>active listings</p>
-		<p class="statisticsPerc">25%</p>
+
+		<p>{{ data.category }}</p>
+		<p class="statisticsPerc">{{ data.percentage }}%</p>
 	</div>
 
 </template>
@@ -16,11 +17,8 @@
 <script type="text/javascript">
 
 	export default {
-
-
-
+		props: ['data', 'total']
 	}
-	
 	
 </script>
 
@@ -38,7 +36,6 @@
 	}
 	span {
 		display: inline-block;
-		background-color: #a8cda7;
 		width: 1rem;
 		height: 1rem;
 		margin: .5rem;

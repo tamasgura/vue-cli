@@ -8,8 +8,8 @@
 	
 		</div>
 		
-		<table class="table">
-			<app-sales-item v-for="(item, index) in unsoldItems" :key="index" :item="item"></app-sales-item>
+		<table class="table" v-if="listLoaded">
+			<app-sales-item v-for="i in 5" :key="i" :item="unsoldItems[i-1]"></app-sales-item>
 		</table>
 	
 	</section>
@@ -17,42 +17,33 @@
 </template>
 
 <script type="text/javascript">
-	
+	import {eventBus} from '../../../main';	
 	import SalesItem from './SalesItem.vue';
 
 	export default {
 
 		data: function() {
 			return {
+				listLoaded: false,
 				unsoldItems: 
 				[
 					{
-						name: 'iPhone 6S 32GB Space gray',
-						attr: 'JH18276',
-						price: 180
-					},					{
-						name: 'iPhone 6S 32GB Space gray',
-						attr: 'JH18276',
-						price: 180
-					},					{
-						name: 'iPhone 6S 32GB Space gray',
-						attr: 'JH18276',
-						price: 180
-					},					{
-						name: 'iPhone 6S 32GB Space gray',
-						attr: 'JH18276',
-						price: 180
-					},					{
-						name: 'iPhone 6S 32GB Space gray',
-						attr: 'JH18276',
-						price: 180
-					},
-
+						userId: 0,
+						id: 0,
+						title: ''
+					}
 				]
 			}
 		},
 		components: {
 			'app-sales-item': SalesItem
+		},
+		created() {
+
+			eventBus.$on('itemListLoaded', (list)=> {
+				this.unsoldItems = list;
+				this.listLoaded = true;	
+			});
 		}
 
 	}

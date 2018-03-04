@@ -1,9 +1,9 @@
 <template>
 		
 	<tr>
-		<td class="pl-0">{{ item.name }}</td>
-		<td class="pl-0">{{ item.attr }}</td>
-		<td class="pl-0">{{ item.price }}&pound;</td>
+		<td class="pl-0">{{ item.title }}</td>
+		<td class="pl-0">{{ item.id }}</td>
+		<td class="pl-0">180&pound;</td>
 	</tr>
 
 </template>
@@ -12,7 +12,7 @@
 	export default {
 
 		props: ['item']
-
+		
 	}
 
 </script>

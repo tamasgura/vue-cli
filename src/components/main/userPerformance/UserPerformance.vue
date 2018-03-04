@@ -5,9 +5,8 @@
 		<h3>User performance</h3>
 		<div class="row no-gutters justify-content-around">
 			
-			<app-user v-for="(user, index) in userList" :key="index" :user="user"></app-user>
-
-
+			<app-user v-if="photos.length !== 0" v-for="(user, index) in userList" :key="index" :user="user" :photo="photos[index]"></app-user>
+		
 		</div>
 		
 	</section>
@@ -21,44 +20,46 @@
 	export default {
 		data: function() {
 			return {
-				userList: 
-				[
-					{
-						firstName: 'János',
-						lastName: 'Szabó',
-						itemsListed: 29
-					},
-					{
-						firstName: 'Ferenc',
-						lastName: 'Tóth',
-						itemsListed: 16
-					},
-					{
-						firstName: 'Ferenc',
-						lastName: 'Tóth',
-						itemsListed: 16
-					},
-					{
-						firstName: 'Ferenc',
-						lastName: 'Tóth',
-						itemsListed: 16
-					},
-					{
-						firstName: 'Ferenc',
-						lastName: 'Tóth',
-						itemsListed: 16
-					},
-					{
-						firstName: 'Ferenc',
-						lastName: 'Tóth',
-						itemsListed: 16
-					},
-
-				]
+				userList: [],
+				photos: []
 			}
 		},
 		components: {
 			'app-user': User
+		},
+		created() {
+			// fetch users data
+			this.$http.get('https://jsonplaceholder.typicode.com/users')
+				.then(response => {
+					return response.json();
+				})
+				.then(data => {
+					
+					const resultArray = [];
+
+					for (let i in data) {
+						resultArray.push(data[i]);
+						if (i==5) {break;}
+					};
+
+					this.userList = resultArray;
+				});
+			// fetch photos
+			this.$http.get('https://jsonplaceholder.typicode.com/photos')
+				.then(response => {
+					return response.json();
+				})
+				.then(data => {
+					
+					const photosArray = [];
+
+					for (let i in data) {
+						photosArray.push(data[i]);
+						if (i==5) {break;}
+					};
+
+					this.photos = photosArray;
+				});
 		}
 
 	}

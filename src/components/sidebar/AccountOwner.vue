@@ -1,23 +1,26 @@
 <template>
 
-	<div class="flex-column mt-5 mb-4 offset-xl-2">
-		<h2 class="text-weight-bold"><span class="text-capitalize">János</span> <span class="text-uppercase">Szabó</span></h2>
-		<small class="text-secondary">account owner</small>
-	</div>
+		<div class="d-flex flex-column col px-2 offset-1 mt-5 mb-4">
+	
+			<p class="accountOwner mb-2">
+				<span class="text-capitalize">János</span> <span class="text-uppercase">Szabó</span>
+			</p>
+		
+			<small class="text-secondary">account owner</small>
+	
+		</div>		
 
 </template>
 
 <script type="text/javascript">
-	export default {
-
-
-	}
+	export default {}
 
 </script>
 
 <style type="text/css" scoped>
-	
-	span {
+
+	.accountOwner * {
+		font: bold 1.5rem 'Open Sans Condensed';
 		color: #fff;
 	}
 </style>

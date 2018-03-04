@@ -1,28 +1,27 @@
 <template>
 
-	<div class="listingStatistics col-xl-8">
+	<div class="listingStatistics col-xl-8 px-3">
 		<h3 class="">Listing statistics</h3>
 		<div class="row no-gutters">
 
-			<div class="bg-info col-xl-2 pieChart">
+			<div class="col-xl-2 pieChart p-0">
 
-				<app-pie-chart></app-pie-chart>
+				<app-pie-chart :data="listingsData" :total="totalListings"></app-pie-chart>
 
 			</div>
 			<div class="flex-column col-xl-10">
 				
 				<div class="row no-gutters col-xl-12 totalListings">
 
-					<p class="statisticsNr col-xl-12 mb-0">{{ listingStatistics.total }}</p>
+					<p class="statisticsNr col-xl-12 mb-0 pb-0">{{ totalListings }}</p>
 					<p>total listing</p>
 
 				</div>
 		
 				<div class="row no-gutters col">
-					<app-statistics-component></app-statistics-component>
-					<app-statistics-component></app-statistics-component>
-					<app-statistics-component></app-statistics-component>
-					<app-statistics-component></app-statistics-component>
+
+					<app-statistics-component v-for="(data, key) in listingsData" :key="key" :data="data" :total="totalListings"></app-statistics-component>
+
 				</div>
 				
 			</div>
@@ -30,7 +29,7 @@
 
 		</div>
 		
-		<p class="dates text-center">13.09.2017-20.09.2017</p>
+		<p class="dates text-center">{{ getDateFrom(7) }}-{{ getDateFrom(0) }}</p>
 		
 	</div>
 
@@ -40,23 +39,69 @@
 <script type="text/javascript">
 	import StatisticsComponent from './StatisticsComponent.vue';
 	import PieChart from './PieChart.vue';
-
 	export default {
 
 		data: function() {
 			return {
-				listingStatistics: {
-						active: 3260,
-						sold: 1149,
-						unsold: 8547,
-						scheduled: 0,
-						total: 	12956
+				listingsData: [
+					{
+						category: 'active',
+						value: 8454,
+						percentage: 0,
+						color: 'green'
+					},
+					{
+						category: 'sold',
+						value: 3578,
+						percentage: 0,
+						color: 'blue'
+					},
+					{
+						category: 'unsold',
+						value: 1456,
+						percentage: 0,
+						color: 'gray'
+					},
+					{
+						category: 'scheduled',
+						value: 0,
+						percentage: 0,
 					}
+				],
+				totalListings: 12488,
+
 			}
 		},
 		components: {
 			'app-statistics-component': StatisticsComponent,
 			'app-pie-chart': PieChart
+		},
+		methods: {
+			getDateFrom(daysBack) {
+
+				let d = new Date();
+				d.setDate(d.getDate() - daysBack);
+				let ddStart = d.getDate();
+				let mmStart = d.getMonth() + 1;
+				let yyyyStart = d.getFullYear();
+
+				if (ddStart < 10) { ddStart = '0'+ ddStart }
+
+				if (mmStart < 10) { mmStart = '0'+ mmStart }
+
+				d =  ddStart + '.' + mmStart + '.' + yyyyStart;
+
+				return d;
+			}
+		},
+		created() {
+// calculate percentages
+
+			var self=this;
+			this.listingsData.forEach(function(el) {
+			  el.percentage = Math.round(el.value / (self.totalListings/100));
+			  
+			});
 		}
 
 	}
@@ -85,9 +130,6 @@ p {
 .dates {
 	font-size: 0.875rem;
 	margin:2.5rem 0 3.325rem;
-}
-.pieChart {
-	height:11rem; 
 }
 	
 </style>

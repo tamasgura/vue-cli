@@ -39,7 +39,7 @@
 <style type="text/css" scoped>
 	
 li {
-	font-size: .675rem;
+	font-size: .6785rem;
 }
 .socialMediaLinks img {
 	height: 1.5rem;

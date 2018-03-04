@@ -1,11 +1,11 @@
 <template>
 
 	<div class="col-xl-2 text-center">
-		<div class="rounded-circle border border-info profileImage mx-auto mb-3">
-			<img src="ati.jpg" class="img-fluid">
+		<div class="rounded-circle profileImage mx-auto mb-3">
+			<img :src="photoUrl" class="img-fluid">
 		</div>
-		<p class="mb-0">{{ user.firstName }} <span class="text-uppercase">{{ user.lastName }}</span></p>
-		<a href="">{{ user.itemsListed }} items listed</a>
+		<p class="mb-0">{{ firstName }} <span class="text-uppercase">{{ lastName }}</span></p>
+		<a href="">{{ itemsListed }} items listed</a>
 	</div>
 
 </template>
@@ -13,7 +13,24 @@
 <script type="text/javascript">
 	export default {
 
-		props: ['user']
+		props: ['user', 'photo'],
+		data: function() {
+			return {
+				firstName: '',
+				lastName: '',
+				itemsListed: 0,
+				photoUrl: ''
+			}
+		},
+		created() {
+
+			let name = this.user.name.split(' ');
+			this.lastName = name.pop();
+			this.firstName = name.join(' ');
+			this.itemsListed = this.user.id;
+			
+			this.photoUrl = this.photo.url;
+		}
 
 	}
 
