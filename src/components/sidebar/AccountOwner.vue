@@ -1,9 +1,9 @@
 <template>
 
-		<div class="d-flex flex-column col px-2 offset-1 mt-5 mb-4">
+		<div class="flex-column col mt-5 mb-4 pl-5 d-none d-lg-flex">
 	
-			<p class="accountOwner mb-2">
-				<span class="text-capitalize">János</span> <span class="text-uppercase">Szabó</span>
+			<p class="accountOwner mb-2 d-flex">
+				<span class="text-capitalize">János</span>&nbsp;<span class="text-uppercase">Szabó</span>
 			</p>
 		
 			<small class="text-secondary">account owner</small>

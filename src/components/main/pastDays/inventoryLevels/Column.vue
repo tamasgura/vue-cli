@@ -1,10 +1,10 @@
 <template>
 	
-	<div class="day px-2 col">
+	<div class="day col-1 d-flex flex-column align-items-center">
 
-		<div class="barHolder mx-auto progress align-items-end w-50">
+		<div class="barHolder progress align-items-end w-50">
 			
-			<div class="bar progress-bar w-100" role="progressbar"
+			<div class="bar progress-bar col-12" role="progressbar"
 				:style="{height: day.amount/(40/100) + '%'}" data-html="true" :title="tooltipText" data-toggle="tooltip" data-placement="top">
 			</div>		
 

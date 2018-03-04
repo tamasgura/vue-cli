@@ -1,8 +1,8 @@
 <template>
 
-	<li class="col notification d-flex">
+	<li class="col-1 notification d-flex">
 	
-		<a href="" class="d-flex align-items-center px-0 mx-auto dropdown-toggle w-100" role="button" id="dropdownNotificationsLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">			
+		<a href="" class="d-flex align-items-center px-0 mx-auto w-100" role="button" id="dropdownNotificationsLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">			
 			<img src="../../../assets/icons/notification.svg" class="mx-auto">
 			<span class="indicator badge rounded-circle" v-if="notifications.list.length">{{ notifications.list.length }}</span>
 		</a>
@@ -72,6 +72,7 @@
 	color: #a1a1a1; 
 	font-size: .6785rem;
 }
+
 .notificationTime {
 	color: #a8cda7;
 }

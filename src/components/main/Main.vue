@@ -33,5 +33,12 @@ h1, h2, h3, h4, h5, h6 {
 	text-transform: uppercase;
 	font: bold 1.5rem 'Open Sans Condensed';
 }
-	
+a:hover  {
+
+	color: #000;
+	text-decoration: none;
+	text-shadow: -3px 3px 7px rgba(0,0,0,.15);
+	transition: all ease-in-out .35s;
+}
+
 </style>

@@ -1,6 +1,6 @@
 <template>
 
-	<section class="pastDays row no-gutters">
+	<section class="pastDays d-flex flex-column flex-md-row justify-content-around">
 		<app-column-chart></app-column-chart>
 		<app-listing-statistics></app-listing-statistics>
 	</section>

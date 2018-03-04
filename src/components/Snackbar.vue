@@ -1,15 +1,17 @@
 <template>
-<div class="fixed-bottom" v-if="snackbar.show">
-	<div class="snackbar alert text-center container col-xl-6 offset-xl-4 p-2" :class="snackbar.attachClass">
-		<div class="text-center col align-self-center">
-			
-			<p class="text-center">{{ snackbar.text }}</p>
-			<a aria-label="Close" role="button">
-				<img class="closeBtn" src="../assets/icons/close.svg" @click="snackbar.show=false">
-			</a>
+
+	<div class="fixed-bottom" v-if="snackbar.show" role="alert">
+		<div class="snackbar alert text-center container col-11 col-sm-9 col-md-8 col-lg-6 col-xl-4 p-2" :class="snackbar.attachClass">
+			<div class="text-center col align-self-center">
+				
+				<p class="text-center">{{ snackbar.text }}</p>
+				<a aria-label="Close" role="button">
+					<img class="closeBtn" src="../assets/icons/close.svg" @click="snackbar.show=false">
+				</a>
+			</div>
 		</div>
 	</div>
-</div>
+	
 </template>
 
 <script type="text/javascript">
@@ -62,7 +64,5 @@
 		position: absolute;
 		top: 0;
 		right: 0;
-		
 	}
-	
 </style>

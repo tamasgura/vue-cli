@@ -1,6 +1,6 @@
 <template>
 
-	<div class="col-xl-2 text-center">
+	<div class="col-12 col-sm-6 col-md-4 col-lg-2 text-center mb-4">
 		<div class="rounded-circle profileImage mx-auto mb-3">
 			<img :src="photoUrl" class="img-fluid">
 		</div>

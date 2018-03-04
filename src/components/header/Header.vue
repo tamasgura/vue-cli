@@ -1,8 +1,8 @@
 <template>
 
-	<header class="row no-gutters">
+	<header class="row no-gutters justify-content-end">
 
-		<ul class="col-xl-12 row no-gutters my-0 justify-content-end">
+		<ul class="row no-gutters my-0 px-0 d-flex justify-content-end col">
 
 <!-- searchbar -->
 			<app-searchbar v-if='!quickLinks.visible'></app-searchbar>
@@ -11,16 +11,16 @@
 			<app-accounts-dropdown v-if="!quickLinks.visible"></app-accounts-dropdown>
 
 <!-- add new quick links -->	
-			<li class="col d-flex align-items-center justify-content-end mx-0 px-0" v-if="quickLinks.visible">
-				<a href="" class="blueText col offset-9 px-0">Add new inventory item</a>
-				<a href="" class="blueText col px-0">Create new listing</a>
+			<li class="d-flex align-items-center justify-content-end mx-0 px-0 col" v-if="quickLinks.visible">
+				<a href="" class="blueText d-flex px-3">Add new inventory item</a>
+				<a href="" class="blueText d-flex px-3">Create new listing</a>
 			</li>
 
 <!--Notification-->		
 			<app-notifications-dropdown v-if="!quickLinks.visible"></app-notifications-dropdown>
 
 <!--addnew-->
-			<li class="col addNew d-flex">		
+			<li class="col-1 addNew d-flex">		
 				<a href="" class="d-flex align-items-center col px-0 mx-auto" @click.prevent="quickLinks.visible=!quickLinks.visible">
 					
 					<img src="../../assets/icons/add.svg" class="mx-auto">
@@ -29,7 +29,7 @@
 			</li>
 
 <!--Logout-->
-			<li class="col d-flex logout">
+			<li class="col-1 d-flex logout">
 				<a href="#" class="d-flex align-items-center col px-0">
 					
 					<img src="../../assets/icons/logout.svg" class="mx-auto">
@@ -100,6 +100,9 @@
 	::placeholder {
    		color: #a1a1a1;
    		font-size: .6785rem;
+   	}
+   	.searchbar {
+   		border: none !important;
    	}
    	.notification, .addNew, .logout {
    		max-width: 3.25rem;

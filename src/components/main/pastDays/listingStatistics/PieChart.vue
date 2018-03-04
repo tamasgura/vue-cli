@@ -1,6 +1,6 @@
 <template>
 
-		<canvas id="pieChart" width="160" height="160"></canvas>
+		<canvas id="pieChart" class="d-flex mx-auto" width="160" height="160"></canvas>
 
 </template>
 

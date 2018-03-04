@@ -1,11 +1,11 @@
 <template>
 	
-	<li class="searchbar d-flex align-items-center justify-content-start col dropdown">
-		<a href="#" class="row no-gutters px-auto my-0" id="searchResultsDropdown" @click.prevent="">
-			<form id="searchForm" class="row no-gutters" @submit.prevent="submitForm">
+	<li class="searchbar d-flex align-items-center dropdown col">
+		<a href="#" class="col-12 px-0 my-0" id="searchResultsDropdown"> 
+			<form id="searchForm" class="row no-gutters mx-0 px-0 col-12" @submit.prevent="submitForm" role="search">
 				
-				<a href="#" @click.prevent="submitForm" role="button" class="col-2 d-flex align-items-center justify-content-around"><img src="../../../assets/icons/search.svg" class="searchImg"></a>
-				<input type="text" class="form-control col " id="searchbar"  name="searchbar" placeholder="SEARCH IN RAPIDLISTING">
+				<a href="#" @click.prevent="submitForm" role="button" class="d-flex align-items-center justify-content-start d-none d-md-flex col-md-1"><img src="../../../assets/icons/search.svg" class="searchImg d-none d-md-flex col-md-12"></a>
+				<input type="text" class="form-control col-12 col-md-10" id="searchbar"  name="searchbar" placeholder="SEARCH IN RAPIDLISTING" aria-label="Search through RAPIDLISTING">
 
 			</form>
 
@@ -61,7 +61,10 @@
 	}
 	input::placeholder {
    		color: #a1a1a1;
-   		font-size: .875rem;
+   		font-size: .6785rem;
+   	}
+   	.searchform input:hover {
+   		text-shadow: none !important;
    	}
    	.closeBtn {
    		height: 100%;

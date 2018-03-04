@@ -1,10 +1,10 @@
 <template>
 
-	<section class="col px-3">
+	<section class="col-12 col-md-6 px-3">
 		
 		<div class="row no-gutters align-items-end mb-5">
-			<h3 class="col-xl-10 text-left">Unsold items in last 24 hrs</h3>
-			<a href="#" class="col align-text-bottom">see full list</a>
+			<h3 class="col-10 text-left">Unsold items in last 24 hrs</h3>
+			<a href="#" class="col-12 col-lg-2 align-text-bottom text-right pr-2">see full list</a>
 	
 		</div>
 		

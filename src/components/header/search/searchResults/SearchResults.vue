@@ -1,6 +1,6 @@
 <template>
 
-	<div class="searchResults bg-white border border-light col-xl-12 py-0">
+	<div class="searchResults bg-white border border-light col-12">
 		
 		<div class="row py-4 pl-4">
 			<div class="flex-column col-8">

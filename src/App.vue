@@ -1,11 +1,11 @@
 <template>
 
-		<div class="row no-gutters">
-			<div class="col">
+		<div class="d-flex">
+			<div class="col col-lg-2 px-0 mx-0">
 				<app-sidebar></app-sidebar>
 			</div>
 			
-			<div class="col-9">
+			<div class="col-11 col-lg-10 px-0 mx-0">
 				<app-header></app-header>
 				<app-main></app-main>
 				<app-snackbar></app-snackbar>
@@ -41,15 +41,12 @@
 		box-sizing: border-box;
 		color: #a1a1a1;
 	}
-	main > section, header, main, footer {
-		/*outline: 1px solid gray;*/
+	header, main > section {
+		border-bottom: 1px solid #cccccc;
 	}
 	body {
 		font-family: 'Open Sans';
 		font-size: .875rem;
-		height: 100%;
-	}
-	html: {
 		height: 100%;
 	}
 	a {
@@ -78,12 +75,14 @@
 	.blueText {
 		color: #199ed9;
 	}
-	/*
-	g: #a8cda7
-	b: #199ed9
-	.6875
-	.875
-	1
-	1.5
-	*/
+	.icon {
+		height: 1rem;
+		opacity: .3rem !important;
+	}	
+	nav a:hover {
+		color: #ebebeb;
+		text-decoration: none;
+		text-shadow: -2px 2px 5px rgba(160,160,160,.3);
+		transition: all ease-in-out .35s;
+	}
 </style>
